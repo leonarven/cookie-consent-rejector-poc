@@ -1,0 +1,20 @@
+{
+  "name": "2024-08-04-cookie-consent-rejector",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "server": "node build/server.js",
+    "watch": "esbuild --watch src/index.ts --bundle --outfile=build/index.js --platform=node --external:jsdom",
+    "watch:server": "esbuild --watch src/server.ts --bundle --outfile=build/server.js --platform=node --external:jsdom"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "jsdom": "^24.1.1"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^21.1.7"
+  }
+}
