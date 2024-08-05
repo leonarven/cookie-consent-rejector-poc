@@ -20,7 +20,11 @@ npm run watch:server
 ```
 # Run
 Currently separated to client and server (because of CORS+custom auth headers for LLM)
+
 ## Server (express)
+Requires env variables:
+- CLAUDE_API_KEY
+
 ```
 npm run server
 ```

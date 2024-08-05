@@ -1,13 +1,17 @@
 import express from "express";
+import cors from "cors";
 
-import { handleCCF } from "./index";
+import { handleCCF } from "./ccf-handler";
 import { htmlToCleanElement, htmlToText } from "./utils";
 
 const app = express();
 
-app.use( express.text());
+app.use( express.text() );
+app.use( cors({
+    origin: true
+}) );
 
-app.post( "/", async (req, res) => {
+app.post( "/", async ( req, res ) => {
 
     let html = htmlToCleanElement( req.body ).innerHTML; 
 
@@ -16,9 +20,14 @@ app.post( "/", async (req, res) => {
     const ccf = await handleCCF( html );
 
     console.log( "ccf", ccf );
+    
+    let json = JSON.stringify( ccf );
 
-    res.setHeader("Content-Type", "application/json");
-    res.json({ hello: "world" });
+    res.send( json ).status(200);
+});
+
+app.get( "/browser.js", function (req, res) {
+    res.sendFile( __dirname + "/browser.js" );
 });
 
 app.listen(3000, () => {

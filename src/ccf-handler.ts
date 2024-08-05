@@ -1,6 +1,6 @@
 import { CookieConsentFormExistenceFinder, CookieConsentFormFinder, CookieConsentFormRejectHandler } from "./agents";
 import { CCF_SELECTOR_INVALID, CCF_TEXT_HAS_NO_COOKIE_CONSENT_FORM, DOCUMENT__BODY_HAS_NO_COOKIE_CONSENT_FORM } from "./errors";
-import { htmlFromHtmlBySelector, htmlToText, runAgent } from "./utils";
+import { htmlFromHtmlBySelector, htmlToText } from "./utils";
 
 export async function handleCCF( html: string ) {
 
